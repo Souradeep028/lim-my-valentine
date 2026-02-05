@@ -1,11 +1,13 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import FloatingPetals from "@/components/FloatingPetals";
 import ArcadeButton from "@/components/ArcadeButton";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center px-6 text-center relative">
       <FloatingPetals />
@@ -37,11 +39,9 @@ export default function Home() {
           For You, Lim
         </h2>
 
-        <Link href="/story">
-          <ArcadeButton color="pink" size="lg" glow>
-            Begin 💕
-          </ArcadeButton>
-        </Link>
+        <ArcadeButton color="pink" size="lg" glow onClick={() => router.push("/story")}>
+          Begin 💕
+        </ArcadeButton>
       </motion.div>
     </div>
   );
