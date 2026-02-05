@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-pink-light: #F9A8D4;
+  --color-pink-main: #EC4899;
+  --color-rose-gold: #B76E79;
+  --color-rose-light: #E8C4C8;
+  --color-cream: #FFF5F5;
+  --color-gold: #D4AF37;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #FFF5F5 0%, #FCE4EC 50%, #F8BBD0 100%);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  color: #4a2030;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Floating Petals */
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) translateX(0px);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(50vh) rotate(360deg) translateX(50px);
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg) translateX(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.4), 0 0 40px rgba(236, 72, 153, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.7), 0 0 80px rgba(236, 72, 153, 0.3);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(1080deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes grow-flower {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes gentle-glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(236, 72, 153, 0.3); }
+  50% { text-shadow: 0 0 30px rgba(236, 72, 153, 0.6), 0 0 60px rgba(183, 110, 121, 0.3); }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-300px) scale(0.3); opacity: 0; }
+}
+
+.petal {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1;
+  animation: fall linear infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.gentle-glow {
+  animation: gentle-glow 3s ease-in-out infinite;
+}
+
+.confetti-heart {
+  position: fixed;
+  pointer-events: none;
+  z-index: 50;
+  animation: confetti-fall linear forwards;
+}
+
+.grow-flower {
+  animation: grow-flower 1.5s ease-out forwards;
+}
